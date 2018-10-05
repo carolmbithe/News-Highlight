@@ -7,8 +7,9 @@ def index():
     View root page function that returns the index page and its data
     """
 
+    title = 'Newsources-catchup on whats latest'
     heading='WELCOME TO NEWSHIGHLIGHT'
-    return render_template('index.html',heading=heading)
+    return render_template('index.html',heading=heading,title=title)
 
 @app.route('/newssource/<int:newssource_id>')
 def newssource(newssource_id):
