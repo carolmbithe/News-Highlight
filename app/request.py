@@ -44,8 +44,13 @@ def process_results(newssource_list):
 
     for newssource_item in newssource_list:
         name = newssource_item.get('name')
+        description = newssource_item.get('description')
+        url = newssource_item.get('url')
+        category = newssource_item.get('category')
+        language = newssource_item.get('language')
 
-        newssource_object = Newssource(name)
+
+        newssource_object = Newssource(name,description,url,category,language)
         newssource_results.append(newssource_object)
 
         print(newssource_list)
