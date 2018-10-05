@@ -1,5 +1,6 @@
 from flask import render_template
 from app import app
+from .request import get_newssource
 
 @app.route('/')
 def index():
@@ -7,9 +8,10 @@ def index():
     View root page function that returns the index page and its data
     """
 
+    news_source=get_newssource()
     title = 'News Sources-catchup on whats latest'
     heading='WELCOME TO NEWSHIGHLIGHT'
-    return render_template('index.html',heading=heading,title=title)
+    return render_template('index.html',heading=heading,title=title,sources=news_source)
 
 @app.route('/newssource/<int:newssource_id>')
 def newssource(newssource_id):

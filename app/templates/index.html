@@ -10,6 +10,12 @@
     </head>
     <body>
         <h1>{{ heading }}</h1>
+        <h3>News sources </h3>
+        <ul>
+          {% for news_source in sources %}
+                <li>{{ news_source.name}}</li>
+            {% endfor %}
 
+        </ul>
     </body>
 </html>
