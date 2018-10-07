@@ -53,6 +53,30 @@ def process_results(newssource_list):
         newssource_object = Newssource(name,description,url,category,language)
         newssource_results.append(newssource_object)
 
-        print(newssource_list)
+        # print(newssource_list)
 
     return newssource_results
+
+def get_source():
+    """
+    Function that gets the json response to our url request
+    """
+
+    get_source_details_url = base_url.format(name,api_key)
+
+    with urllib.request.urlopen(get_source_details_url) as url:
+        source_details_data = url.read()
+        source_details_response = json.loads(source_details_data)
+
+        newssource_object = None
+
+        if source_details_response:
+            name = source_details_response.get('name')
+            description = source_details_response.get('description')
+            url = source_details_response.get('url')
+            category = source_details_response.get('category')
+            language = source_details_response.get('language')
+
+            newssource_object = Newssource(name,description,url,category,language)
+
+        return newssource_object

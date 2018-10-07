@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .request import get_newssource
+from .request import get_newssource,get_source
 
 @app.route('/')
 def index():
@@ -13,9 +13,11 @@ def index():
     heading='WELCOME TO NEWSHIGHLIGHT'
     return render_template('index.html',heading=heading,title=title,sources=news_source)
 
-@app.route('/newssource/<int:newssource_id>')
-def newssource(newssource_id):
+@app.route('/source')
+def source():
     """
-    View movie page function that returns the news sources and their details
+    View movie page function that returns the  sources and their details
     """
-    return render_template('newssource.html',id = newssource_id)
+    source= get_source(name)
+    title = f'{newssource.name}'
+    return render_template('source.html',title = title,source=source)

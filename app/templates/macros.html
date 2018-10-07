@@ -1,8 +1,12 @@
 {% macro displayNewssourceList(newssource_list) %}
 
     {% for newssource in newssource_list %}
-        <li>{{ newssource.name}}</li>
+        <li class ="text-center">
+          <a href = "/source/{{ newssource.name}}">
+            {{newssource.name|truncate(10)}}</a>
+        </li>
         <p>{{newssource.description}}</p>
+
     {% endfor %}
 
 {% endmacro %}
