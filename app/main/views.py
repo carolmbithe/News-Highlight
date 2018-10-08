@@ -18,11 +18,11 @@ def index():
     heading='WELCOME TO NEWSHIGHLIGHT'
     return render_template('index.html',heading=heading,title=title,sources=news_source)
 
-# @main.route('/source/')
-# def source():
-#     """
-#     View source page function that returns the  sources and their details
-#     """
-#     source= get_source()
-#     title = f'{source.name}'
-#     return render_template('source.html',title = title,source=source)
+@main.route('/source/')
+def source():
+    """
+    View source page function that returns the  sources and their details
+    """
+    source= get_source()
+    title = f'{source.name}'
+    return render_template('source.html',title = title,source=source)
