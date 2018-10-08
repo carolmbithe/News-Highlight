@@ -1,7 +1,7 @@
 
-from flask import render_template,request,redirect,url_for
+from flask import render_template
 from . import main
-from ..request import get_sources,get_source
+from ..request import get_sources,get_articles
 
 # from ..models import Article
 
@@ -13,16 +13,16 @@ def index():
     View root page function that returns the index page and its data
     """
 
-    news_source=get_sources()
+    newsSource=get_sources()
     title = 'News Sources-catchup on whats latest'
-    heading='WELCOME TO NEWSHIGHLIGHT'
-    return render_template('index.html',heading=heading,title=title,sources=news_source)
+    print(newsSource)
+    return render_template('index.html',title=title,sources=newsSource)
 
-@main.route('/source/')
-def source():
+@main.route('/articles/<string:id>')
+def source(id):
     """
     View source page function that returns the  sources and their details
     """
-    source= get_source()
-    title = f'{source.name}'
-    return render_template('source.html',title = title,source=source)
+    articles= get_articles(id)
+    print(articles)
+    return render_template('articles.html',articles=articles)
