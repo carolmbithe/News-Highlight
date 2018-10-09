@@ -1,14 +1,16 @@
 {% macro displaySourceList(source_list) %}
 
     {% for source in source_list %}
-        <div class="col-md-5">
+
+        <div class="col-md-6">
 
           <p>{{source.name}}</p>
 
         <p>{{source.description}}</p>
-        <a href="/articles/{{source.id}}" class="btn">Articles</a>
+        <a href="/articles/{{source.id}}" button type="button" class="btn btn-info ">Articles</a></button>
 
         </div>
+      
 
     {% endfor %}
 
