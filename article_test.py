@@ -12,7 +12,7 @@ class ArticleTest(unittest.TestCase):
         '''
         Set up method that will run before every Test
         '''
-        self.new_article = Article('Washington post','null','Haiti earthquake','null','2018.10.07','null','null','https://www.washington.com/earthquake',)
+        self.new_article = Article('Washington post','null','Haiti earthquake','null','2018.10.07','null','null')
 
     def test_instance(self):
         self.assertTrue(isinstance(self.new_article,Article))
